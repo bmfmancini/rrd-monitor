@@ -9,7 +9,7 @@ The script will logg to /var/log/rrd-monitor.log
 
 
 TODO 
-Logic to send a email if an error is seen
-Echo status into Cacti log
+Logic to send a email if an error is seen<br>
+Echo status into Cacti log<br>
 other stuff ???
 
