@@ -25,7 +25,7 @@ rrd_update="$(rrdtool lastupdate   $path_to_rrd  | awk '{print$1}'   | grep -o '
 if [ $i == 1 ]
  then
 echo "Graphs are not updating"   $('date')  >> $logging_file
-#"WARNING:Graphs are not updating"   $('date')  >> $logging_file ##Uncomment this line to showup nicely in cacti log
+#echo "WARNING:Graphs are not updating"   $('date')  >> $logging_file ##Uncomment this line to showup nicely in cacti log
 echo "RRD GRAPHS ARE NOT UPDATING!!!" | ssmtp $email_address
  else 
 echo "Graphs are updating"   $('date')  >> $logging_file
