@@ -7,7 +7,7 @@
 ##User settings
 path_to_rrd="i.e /var/www/html/cacti/rra/xyzhost.rrd"
 logging_file=" i.e /var/www/html/cacti/log/cacti.log"
-email_address="" #future 
+#email_address="" #future 
 
 
 ##Get details from rrdtool
