@@ -5,12 +5,13 @@
 #/bin/bash
 
 
-
-
+path_to_rrd="i.e /var/www/html/cacti/rra/xyzhost.rrd"
+logging_file=" i.e /var/log/mylog.txt"
+email_address="" #future 
 
 ##Get details from rrdtool
 
-rrd_update="$(rrdtool lastupdate   /var/www/html/cacti/rra/local_linux_machine_loss_101.rrd  | awk '{print$1}'   | grep -o '[0-9]\+')"
+rrd_update="$(rrdtool lastupdate   $path_to_rrd  | awk '{print$1}'   | grep -o '[0-9]\+')"
 rrd_lastupdate=$rrd_update
 
 
@@ -26,13 +27,13 @@ else
 ##Logging
 if [ $i == 1 ]
  then
-echo "Graphs are not updating"   $('date')  >> /var/log/rrd-monitor.log
+echo "Graphs are not updating"   $('date')  >> $logging_file
  else 
-echo "Graphs are updating"   $('date')  >> /var/log/rrd-monitor.log
+echo "Graphs are updating"   $('date')  >> $logging_file
 fi
 
 
-
+echo $i
 
 
 
