@@ -46,7 +46,6 @@ fi
 
 if [ $i == i ] && [ $enable_email == "y" ]
 then echo "RRD GRAPHS ARE NOT UPDATING!!!" | ssmtp -vv $email_address
-echo "123"
 fi
 
 
