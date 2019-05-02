@@ -17,7 +17,7 @@ rrd_update="$(rrdtool lastupdate   $path_to_rrd  | awk '{print$1}'   | grep -o '
    if [ $rrd_update == $rrd_lastupdate ]
     then 
       i=0
-       else 
+        else 
         i=1
           fi
 
@@ -26,10 +26,10 @@ rrd_update="$(rrdtool lastupdate   $path_to_rrd  | awk '{print$1}'   | grep -o '
 if [ $i == 1 ]
  then
 #echo "Graphs are not updating"   $('date')  >> $logging_file
-echo "WARNING:Graphs are not updating"   $('date')  >> $logging_file ##Uncomment this line to showup nicely in cacti log
+echo $('date') "WARNING: Graphs are not updating"     >> $logging_file ##Uncomment this line to showup nicely in cacti log
  else 
 #echo "Graphs are updating"   $('date')  >> $logging_file
-echo "SYSTEM STATS:Graphs are updating"   $('date')  >> $logging_file ##Uncomment this line to showup nicely in cacti log
+echo $('date') "SYSTEM STATS: Graphs are updating"     >> $logging_file ##Uncomment this line to showup nicely in cacti log
 fi
 
 
