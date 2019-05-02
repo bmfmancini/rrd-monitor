@@ -9,9 +9,6 @@ path_to_rrd="/var/www/html/cacti/rra/local_linux_machine_loss_101.rrd"
 logging_file="/var/www/html/cacti/log/cacti.log"
 #enable_email="" # enter Y to enable
 #email_address="enter email" 
-path_to_rrd="i.e /var/www/html/cacti/rra/xyzhost.rrd"
-logging_file=" i.e /var/www/html/cacti/log/cacti.log"
-#email_address="" #future 
 
 
 ##Get details from rrdtool
@@ -33,12 +30,6 @@ echo "WARNING:Graphs are not updating"   $('date')  >> $logging_file ##Uncomment
  else 
 #echo "Graphs are updating"   $('date')  >> $logging_file
 echo "SYSTEM STATS:Graphs are updating"   $('date')  >> $logging_file ##Uncomment this line to showup nicely in cacti log
-echo "Graphs are not updating"   $('date')  >> $logging_file
-#echo "WARNING:Graphs are not updating"   $('date')  >> $logging_file ##Uncomment this line to showup nicely in cacti log
-echo "RRD GRAPHS ARE NOT UPDATING!!!" | ssmtp $email_address
- else 
-echo "Graphs are updating"   $('date')  >> $logging_file
-#echo "SYSTEM STATS:Graphs are updating"   $('date')  >> $logging_file ##Uncomment this line to showup nicely in cacti log
 fi
 
 
