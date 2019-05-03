@@ -7,7 +7,7 @@
 
 
 ##User settings
-path_to_rrd="/var/www/html/cacti/rra/local_linux_machine_load_1min_2.rrd"
+path_to_rrd="/var/www/html/cacti/rra/local_linux_machine_loss_101.rrd"
 logging_file="/var/www/html/cacti/log/cacti.log"
 enable_email="" # enter Y to enable
 email_address="" 
@@ -15,18 +15,15 @@ email_address=""
 
 ##Get details from rrdtool
 rrd_update="$(rrdtool lastupdate   $path_to_rrd  | awk '{print$1}'   | grep -o '[0-9]\+')"
-sleep 30
+sleep 5
 rrd_lastupdate="$(rrdtool lastupdate   $path_to_rrd  | awk '{print$1}'   | grep -o '[0-9]\+')"
 
-   if [[ "$rrd_update"  ==  "$rrd_lastupdate" ]]
+   if [[ "$rrd_update" = "$rrd_lastupdate" ]]
     then 
       i=1
-             
        else 
         i=0
           fi
-echo $rrd_update
-echo $rrd_lastupdate
 
 ##Logging messeges
 if [ $i == 1 ]
