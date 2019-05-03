@@ -4,23 +4,29 @@
 
 #/bin/bash
 
+
+
 ##User settings
-path_to_rrd="/var/www/html/cacti/rra/local_linux_machine_loss_101.rrd"
+path_to_rrd="/var/www/html/cacti/rra/local_linux_machine_load_1min_2.rrd"
 logging_file="/var/www/html/cacti/log/cacti.log"
-#enable_email="" # enter Y to enable
-#email_address="enter email" 
+enable_email="" # enter Y to enable
+email_address="" 
 
 
 ##Get details from rrdtool
 rrd_update="$(rrdtool lastupdate   $path_to_rrd  | awk '{print$1}'   | grep -o '[0-9]\+')"
- rrd_lastupdate=$rrd_update
-   if [ $rrd_update == $rrd_lastupdate ]
-    then 
-      i=0
-        else 
-        i=1
-          fi
+sleep 30
+rrd_lastupdate="$(rrdtool lastupdate   $path_to_rrd  | awk '{print$1}'   | grep -o '[0-9]\+')"
 
+   if [[ "$rrd_update"  ==  "$rrd_lastupdate" ]]
+    then 
+      i=1
+             
+       else 
+        i=0
+          fi
+echo $rrd_update
+echo $rrd_lastupdate
 
 ##Logging messeges
 if [ $i == 1 ]
@@ -35,8 +41,12 @@ fi
 
 ###Email alarm to admin (requires ssmtp)
 
-if [ $i == i ] && [ $enable_email == "y" ]
-then echo "RRD GRAPHS ARE NOT UPDATING!!!" | ssmtp -vv $email_address
+if [ $i == 1 ] && [ $enable_email == "y" ]
+then (echo "Subject: !!!Cacti Graphing Alert!!!"; echo "From: "email" "; echo "To: Me <$email_address>"; echo ""; echo "Graphs are not updating") | ssmtp -vv $email_address
+
+
+echo test
+
 fi
 
 
