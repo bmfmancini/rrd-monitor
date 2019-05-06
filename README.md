@@ -13,7 +13,7 @@ The script will logg to /var/log/rrd-monitor.log
 
 HOW TO:
 
-Put the script into your directory of choise 
+Put the script into your directory of choice 
 change the logging path to either your cacti log or something else 
 
 if using cacti uncomment <br>
