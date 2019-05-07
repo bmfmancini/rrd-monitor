@@ -7,8 +7,8 @@
 
 
 ##User settings
-path_to_rrd="/var/www/html/cacti/rra/local_linux_machine_loss_101.rrd"
-logging_file="/var/www/html/cacti/log/cacti.log"
+path_to_rrd="rrd_file_to_monitor"
+logging_file="path_to_log"
 enable_email="" # enter Y to enable
 email_address="sean.mancini@rci.rogers.com" 
 

@@ -4,16 +4,13 @@ This is a simple script to monitor RRD graph updates
 The script will use the RRDtool lastupdate command to compare 
 the update values if they are the same things are good
 if no change then the graph has not updated
-
-The script will logg to /var/log/rrd-monitor.log 
-
-
+ 
 
 
 
 HOW TO:
 
-Put the script into your directory of choise 
+Put the script into your directory of choice 
 change the logging path to either your cacti log or something else 
 
 if using cacti uncomment <br>
