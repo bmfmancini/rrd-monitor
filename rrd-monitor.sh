@@ -10,7 +10,7 @@
 path_to_rrd="rrd_file_to_monitor"
 logging_file="path_to_log"
 enable_email="" # enter Y to enable
-email_address="sean.mancini@rci.rogers.com" 
+email_address="" 
 
 
 ##Get details from rrdtool
