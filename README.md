@@ -19,3 +19,16 @@ This allows the line to show up nicely in the cacti log view <br>
 put a entry into your cron to run at the interveral you want to do your checks
 
 
+###Cacti Specific
+
+###If using 1 Minute polls 
+
+*/2 * * * *  /bin/bash   /rrd_monitor/rrd-monitor.sh >> /tmp/log.txt
+
+###if using 5 minute polls 
+
+*/10 * * * *   /bin/bash  /root/rrd-monitor.sh
+
+set sleep time in script from 30 to 300 to account for the 5 minute polling time between the first reading and the second
+
+
